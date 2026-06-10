@@ -1,0 +1,27 @@
+#URL = "http://38.253.155.235:8080"}
+
+URL = "http://localhost:10005"
+#URL = "http://localhost:2025"
+URL_IP = "https://api.ipify.org"
+
+TEXTO_TITULO_VENTANA = "ProWork"
+ANCHO_VENTANA = 1280
+ALTO_VENTANA = 720
+TEXTO_BOTON_INICIAR = "Iniciar"
+TEXTO_BOTON_FINALIZAR = "Finalizar"
+
+ID_EVENTO_INICIA = "001"
+DESCRIPCION_EVENTO_INICIA = "Inicia jornada"
+ID_EVENTO_FINALIZA = "002"
+DESCRIPCION_EVENTO_FINALIZA = "Finaliza jornada"
+TEXTO_BOTON_JUSTIFICAR = "Justificar salida"
+ID_EVENTO_AUSENTE = "003"
+DESCRIPCION_EVENTO_AUSENTE = "Ausente por más de {0} minutos"
+ID_EVENTO_JUSTIFICADO = "004"
+DESCRIPCION_EVENTO_JUSTIFICADO = "Ausencia justificada: "
+ID_EVENTO_AVANCE = "005"
+DESCRIPCION_EVENTO_AVANCE = "Avance del personal"
+ID_EVENTO_PROGRAMAS = "006"
+DESCRIPCION_EVENTO_PROGRAMAS = "Programa(s) no registrado detectado"
+ID_EVENTO_COMISION = "007"
+DESCRIPCION_EVENTO_COMISION = "Salida por comision: "

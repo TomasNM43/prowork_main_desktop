@@ -1,0 +1,12 @@
+
+.DS_Store
+*.lock
+Pipfile
+*.pyc
+__pycache__/
+
+# Build artifacts (PyInstaller)
+App/build/
+App/output/
+*.spec
+dist/

@@ -1,0 +1,110 @@
+{
+    "programa": [
+        {
+            "nombre": "ProWork",
+            "timestamp": [
+                {
+                    "dias": 0,
+                    "horas": 0,
+                    "minutos": 0,
+                    "segundos": 9,
+                    "tiempo_fin": "2025-01-10 22:29:15",
+                    "tiempo_inicio": "2025-01-10 22:29:06"
+                },
+                {
+                    "dias": 0,
+                    "horas": 0,
+                    "minutos": 0,
+                    "segundos": 1,
+                    "tiempo_fin": "2025-01-12 13:38:02",
+                    "tiempo_inicio": "2025-01-12 13:38:00"
+                },
+                {
+                    "dias": 0,
+                    "horas": 0,
+                    "minutos": 0,
+                    "segundos": 31,
+                    "tiempo_fin": "2025-01-12 13:56:33",
+                    "tiempo_inicio": "2025-01-12 13:56:01"
+                },
+                {
+                    "dias": 0,
+                    "horas": 0,
+                    "minutos": 0,
+                    "segundos": 11,
+                    "tiempo_fin": "2025-01-12 14:02:09",
+                    "tiempo_inicio": "2025-01-12 14:01:57"
+                },
+                {
+                    "dias": 0,
+                    "horas": 0,
+                    "minutos": 0,
+                    "segundos": 21,
+                    "tiempo_fin": "2025-01-12 14:04:16",
+                    "tiempo_inicio": "2025-01-12 14:03:54"
+                },
+                {
+                    "dias": 0,
+                    "horas": 0,
+                    "minutos": 0,
+                    "segundos": 14,
+                    "tiempo_fin": "2025-01-12 14:05:23",
+                    "tiempo_inicio": "2025-01-12 14:05:09"
+                }
+            ]
+        },
+        {
+            "nombre": "",
+            "timestamp": [
+                {
+                    "dias": 0,
+                    "horas": 0,
+                    "minutos": 0,
+                    "segundos": 7,
+                    "tiempo_fin": "2025-01-10 22:29:23",
+                    "tiempo_inicio": "2025-01-10 22:29:15"
+                },
+                {
+                    "dias": 0,
+                    "horas": 0,
+                    "minutos": 0,
+                    "segundos": 0,
+                    "tiempo_fin": "2025-01-12 13:38:02",
+                    "tiempo_inicio": "2025-01-12 13:38:02"
+                },
+                {
+                    "dias": 0,
+                    "horas": 0,
+                    "minutos": 0,
+                    "segundos": 0,
+                    "tiempo_fin": "2025-01-12 13:56:33",
+                    "tiempo_inicio": "2025-01-12 13:56:33"
+                },
+                {
+                    "dias": 0,
+                    "horas": 0,
+                    "minutos": 0,
+                    "segundos": 0,
+                    "tiempo_fin": "2025-01-12 14:02:09",
+                    "tiempo_inicio": "2025-01-12 14:02:09"
+                },
+                {
+                    "dias": 0,
+                    "horas": 0,
+                    "minutos": 0,
+                    "segundos": 0,
+                    "tiempo_fin": "2025-01-12 14:04:16",
+                    "tiempo_inicio": "2025-01-12 14:04:16"
+                },
+                {
+                    "dias": 0,
+                    "horas": 0,
+                    "minutos": 0,
+                    "segundos": 0,
+                    "tiempo_fin": "2025-01-12 14:05:23",
+                    "tiempo_inicio": "2025-01-12 14:05:23"
+                }
+            ]
+        }
+    ]
+}
