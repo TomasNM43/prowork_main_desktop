@@ -136,10 +136,10 @@ class Login(QDialog):
         form_layout.addWidget(self.usuario_input)
 
         form_layout.addSpacing(6)
-        form_layout.addWidget(QLabel('Institución'))
-        self.institucion_input = QLineEdit()
-        self.institucion_input.setPlaceholderText('Ingrese su institución')
-        form_layout.addWidget(self.institucion_input)
+        form_layout.addWidget(QLabel('Empresa'))
+        self.empresa_input = QLineEdit()
+        self.empresa_input.setPlaceholderText('Ingrese su empresa')
+        form_layout.addWidget(self.empresa_input)
 
         form_layout.addSpacing(6)
         form_layout.addWidget(QLabel('Contraseña'))
@@ -173,15 +173,15 @@ class Login(QDialog):
 
         root.addWidget(form_container)
         self.setLayout(root)
-        self.setTabOrder(self.usuario_input, self.institucion_input)
-        self.setTabOrder(self.institucion_input, self.contra_input)
+        self.setTabOrder(self.usuario_input, self.empresa_input)
+        self.setTabOrder(self.empresa_input, self.contra_input)
         self.setTabOrder(self.contra_input, btn)
 
     def validar_usuario(self) -> None:
         self.error_label.hide()
         json = {
             'ID_PERSONAL': self.usuario_input.text(),
-            'ID_INSTITUCION': self.institucion_input.text(),
+            'ID_EMPRESA': self.empresa_input.text(),
             'PASSWORD': self.contra_input.text()
         }
         print(json)
@@ -191,7 +191,7 @@ class Login(QDialog):
         if estado:
             if 'datos' in respuesta:
                 diccionario = respuesta['datos']
-                asistencia = respuesta.get('asistencia').get('FECHA_HORA_FIN_PRG')
+                asistencia = respuesta.get('asistencia').get('FECHA_HORA_FIN_REAL')
                 print(asistencia)
                 fecha_hora = datetime.now().strftime('%d-%m-%Y %H:%M:%S')
                 if asistencia:
@@ -213,6 +213,6 @@ class Login(QDialog):
         self.error_label.show()
 
 
-#20237
-#120220000002
-#8774465
+#20481
+#120220000010
+#123456

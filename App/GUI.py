@@ -192,6 +192,7 @@ class GUI(QMainWindow):
         self.tracker.start()
 
         self._ts_ausencia = None  # timestamp cuando desaparece la cara
+        self._ts_sin_cara = None   # timestamp del primer frame sin cara (período de gracia)
 
         # Timer 1 segundo
         timer_1s = QTimer(self)
@@ -234,21 +235,29 @@ class GUI(QMainWindow):
             m, s = divmod(rem, 60)
             self.sesion_label.setText(f"Sesión: {h:02d}:{m:02d}:{s:02d}")
 
+    _GRACE_SECONDS = 5  # segundos sin cara antes de contar como ausencia
+
     def _verificar_presencia_camara(self) -> None:
         if not self.camara.ubicacion_cara:
-            if self._ts_ausencia is None:
-                self._ts_ausencia = time.time()
-                QMessageBox.warning(self, 'Ausencia detectada', 'No apareces en la cámara.\nSe están sumando minutos improductivos.')
-            else:
+            if self._ts_sin_cara is None:
+                self._ts_sin_cara = time.time()
+            if self._ts_ausencia is None and (time.time() - self._ts_sin_cara) >= self._GRACE_SECONDS:
+                self._ts_ausencia = self._ts_sin_cara
+                self.status_dot.setStyleSheet("background-color: #EF4444; border-radius: 5px;")
+                self.status_text.setText("No detectado en cámara")
+            elif self._ts_ausencia is not None:
                 elapsed = time.time() - self._ts_ausencia
                 total = usuario.minutos_ausentes + elapsed / 60
                 self.minutos_improductivos_label.setText("Minutos Improductivos: {}".format(int(total)))
         else:
+            self._ts_sin_cara = None
             if self._ts_ausencia is not None:
                 elapsed = time.time() - self._ts_ausencia
                 minutos = elapsed / 60
                 usuario.minutos_ausentes += minutos
                 self._ts_ausencia = None
+                self.status_dot.setStyleSheet("background-color: #22C55E; border-radius: 5px;")
+                self.status_text.setText("Jornada activa")
                 intervalo = int(usuario.parametros.VERIFICACION_EVENTO_MINUTOS or 5)
                 if minutos >= intervalo:
                     self.grabar_evento(None, ID_EVENTO_AUSENTE,

@@ -138,7 +138,7 @@ class Actividades(QDialog):
             self.descripcion_label.setText("Descripcion: {0}".format(descripcion))
             self.estado.setChecked(estado)
             self.avance_input.setPlaceholderText(avance)
-        url = URL + '/actividades/' + usuario.personal.ID_PERSONAL
+        url = URL + '/actividades/' + usuario.personal.ID_PERSONAL + '/' + usuario.personal.ID_EMPRESA
         estado, respuesta = solicitud("GET", url)
         actividades = []
         descripciones = []

@@ -135,7 +135,7 @@ class Justificaciones(QDialog):
         self.setLayout(root)
 
     def obtener_justificaciones(self) -> None:
-        url = URL + '/justifica/' + usuario.personal.ID_INSTITUCION
+        url = URL + '/justifica/' + usuario.personal.ID_EMPRESA
         id_justifica = []
         descripciones = []
         minutos = []

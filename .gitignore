@@ -10,3 +10,12 @@ App/build/
 App/output/
 *.spec
 dist/
+
+# Large binary model files (too large for GitHub - use Git LFS or external storage)
+App/face_recognition_models/
+App/face_recognition_models.rar
+*.dat
+
+# Visual Studio local settings
+.vs/
+App/.vs/

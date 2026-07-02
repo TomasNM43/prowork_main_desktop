@@ -19,7 +19,7 @@ class Usuario():
         self.minutos_ausentes = 0
     
     def obtener_parametros(self):
-        url = Constantes.URL + '/parametros/{0}'.format(self.personal.ID_INSTITUCION)
+        url = Constantes.URL + '/parametros/{0}'.format(self.personal.ID_EMPRESA)
         estado, respuesta = solicitud("GET", url)
         if estado:
             diccionario = respuesta['datos']
