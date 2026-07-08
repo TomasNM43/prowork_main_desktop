@@ -134,16 +134,27 @@ class Actividades(QDialog):
         self.setLayout(root)
     
     def listar_actividades(self):
-        def actualizar_datos(descripcion, estado, avance):
+        def actualizar_datos(descripcion, estado, avance, tipo):
             self.descripcion_label.setText("Descripcion: {0}".format(descripcion))
             self.estado.setChecked(estado)
-            self.avance_input.setPlaceholderText(avance)
+            if tipo == "Diaria":
+                self.avance_input.clear()
+                self.avance_input.setText("100")
+                self.avance_input.setEnabled(False)
+                self.estado.setEnabled(False)
+            else:
+                self.avance_input.clear()
+                self.avance_input.setPlaceholderText(str(avance))
+                self.avance_input.setEnabled(True)
+                self.estado.setEnabled(True)
         url = URL + '/actividades/' + usuario.personal.ID_PERSONAL + '/' + usuario.personal.ID_EMPRESA
         estado, respuesta = solicitud("GET", url)
         actividades = []
         descripciones = []
         estados = []
         avance = []
+        tipos = []
+        ids = []
         if estado:
             data = respuesta['datos']
             for i in data:
@@ -154,14 +165,25 @@ class Actividades(QDialog):
                 else:
                     estados.append(True)
                 avance.append(i['AVANCE_ACTIVIDAD'])
+                tipos.append(i['TIPO_ACTIVIDAD'])
+                ids.append(i['ID_ACTIVIDAD'])
+            self.tipos = tipos
+            self.ids = ids
             self.actividades_combobox.clear()
             self.actividades_combobox.addItems(actividades)
-            self.descripcion_label.setText("Descripcion: {0}".format(descripciones[0]))
-            self.estado.setChecked(estados[0])
-            self.avance_input.setPlaceholderText(avance[0])
-            self.actividades_combobox.activated.connect(lambda: actualizar_datos(descripciones[self.actividades_combobox.currentIndex()], estados[self.actividades_combobox.currentIndex()], avance[self.actividades_combobox.currentIndex()]))
+            actualizar_datos(descripciones[0], estados[0], avance[0], tipos[0])
+            self.actividades_combobox.activated.connect(lambda: actualizar_datos(descripciones[self.actividades_combobox.currentIndex()], estados[self.actividades_combobox.currentIndex()], avance[self.actividades_combobox.currentIndex()], tipos[self.actividades_combobox.currentIndex()]))
         else:
             QMessageBox.warning(self, 'Error', respuesta['mensaje'])
     
     def guardar(self):
+        idx = self.actividades_combobox.currentIndex()
+        if hasattr(self, 'tipos') and 0 <= idx < len(self.tipos) and self.tipos[idx] == "Diaria":
+            url = URL + '/actividades/diaria/completar/' + str(self.ids[idx])
+            exito, respuesta = solicitud("PUT", url)
+            if exito:
+                QMessageBox.information(self, 'Guardado', 'Actividad diaria completada al 100%.')
+            else:
+                QMessageBox.warning(self, 'Error', respuesta.get('mensaje', 'Error al guardar'))
+                return
         self.close()
