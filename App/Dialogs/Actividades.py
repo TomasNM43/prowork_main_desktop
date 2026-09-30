@@ -1,9 +1,9 @@
 from PyQt5.QtWidgets import *
 from PyQt5.QtCore import *
 from PyQt5.QtGui import *
-from Constantes import *
 from Usuario import usuario
 from Solicitudes import solicitud
+from Constantes import *
 
 _STYLE = """
 QDialog {
@@ -171,10 +171,21 @@ class Actividades(QDialog):
             self.ids = ids
             self.actividades_combobox.clear()
             self.actividades_combobox.addItems(actividades)
-            actualizar_datos(descripciones[0], estados[0], avance[0], tipos[0])
-            self.actividades_combobox.activated.connect(lambda: actualizar_datos(descripciones[self.actividades_combobox.currentIndex()], estados[self.actividades_combobox.currentIndex()], avance[self.actividades_combobox.currentIndex()], tipos[self.actividades_combobox.currentIndex()]))
+            try:
+                self.actividades_combobox.activated.disconnect()
+            except TypeError:
+                pass
+            if actividades:
+                actualizar_datos(descripciones[0], estados[0], avance[0], tipos[0])
+                self.actividades_combobox.activated.connect(lambda: actualizar_datos(descripciones[self.actividades_combobox.currentIndex()], estados[self.actividades_combobox.currentIndex()], avance[self.actividades_combobox.currentIndex()], tipos[self.actividades_combobox.currentIndex()]))
+            else:
+                self.descripcion_label.setText("No hay actividades asignadas")
+                self.estado.setChecked(False)
+                self.avance_input.clear()
+                self.avance_input.setEnabled(False)
+                self.estado.setEnabled(False)
         else:
-            QMessageBox.warning(self, 'Error', respuesta['mensaje'])
+            QMessageBox.warning(self, 'Error', respuesta.get('mensaje', 'Error al obtener actividades'))
     
     def guardar(self):
         idx = self.actividades_combobox.currentIndex()

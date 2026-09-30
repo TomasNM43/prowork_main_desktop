@@ -1,8 +1,11 @@
 #URL = "http://38.253.155.235:8080"}
 
+#URL = "http://38.253.155.235:10005"
 URL = "http://localhost:10005"
-#URL = "http://localhost:2025"
 URL_IP = "https://api.ipify.org"
+
+URL_WEB = "http://38.253.155.235:10004"   # el mismo servidor donde corre SIGOFCv3
+STREAMING_SECRET = "prowork-stream-2026"
 
 TEXTO_TITULO_VENTANA = "ProWork"
 ANCHO_VENTANA = 1280
@@ -25,3 +28,13 @@ ID_EVENTO_PROGRAMAS = "006"
 DESCRIPCION_EVENTO_PROGRAMAS = "Programa(s) no registrado detectado"
 ID_EVENTO_COMISION = "007"
 DESCRIPCION_EVENTO_COMISION = "Salida por comision: "
+ID_EVENTO_INICIO_REFRIGERIO = "008"
+DESCRIPCION_EVENTO_INICIO_REFRIGERIO = "Salida a refrigerio"
+ID_EVENTO_FIN_REFRIGERIO = "009"
+DESCRIPCION_EVENTO_FIN_REFRIGERIO = "Retorno de refrigerio"
+ID_EVENTO_RETORNO_REFRIGERIO_APROBADO = "010"
+DESCRIPCION_EVENTO_RETORNO_REFRIGERIO_APROBADO = "Retorno de refrigerio tardio aprobado por el supervisor"
+ID_EVENTO_SUPERVISION = "011"
+DESCRIPCION_EVENTO_SUPERVISION = "Supervisión periódica"
+
+SUPERVISION_INTERVALO_MINUTOS = 5

@@ -1,0 +1,230 @@
+{
+  ".vs/ProjectSettings.json": {
+    "mtime": 1724810947.4425023,
+    "seen": 1788041810.1554165,
+    "ast_hash": "e88a33ccaa92ae56561422612f557911",
+    "semantic_hash": "e88a33ccaa92ae56561422612f557911"
+  },
+  ".vs/VSWorkspaceState.json": {
+    "mtime": 1724823164.2321868,
+    "seen": 1788041810.155421,
+    "ast_hash": "f1625a5befdd3a1aa8dad0a380bcee67",
+    "semantic_hash": "f1625a5befdd3a1aa8dad0a380bcee67"
+  },
+  "App/.vs/ProjectSettings.json": {
+    "mtime": 1724810631.4103634,
+    "seen": 1788041810.155423,
+    "ast_hash": "e88a33ccaa92ae56561422612f557911",
+    "semantic_hash": "e88a33ccaa92ae56561422612f557911"
+  },
+  "App/.vs/VSWorkspaceState.json": {
+    "mtime": 1724810941.5424743,
+    "seen": 1788041810.1554244,
+    "ast_hash": "558b083a9d0bb330b23a5e137510361b",
+    "semantic_hash": "558b083a9d0bb330b23a5e137510361b"
+  },
+  "App/AppLogger.py": {
+    "mtime": 1783654959.7488973,
+    "seen": 1788041810.155425,
+    "ast_hash": "50291111b1c2bebb79b8f39fb64f7bfb",
+    "semantic_hash": "50291111b1c2bebb79b8f39fb64f7bfb"
+  },
+  "App/Camara.py": {
+    "mtime": 1787608256.1865609,
+    "seen": 1788041810.1554258,
+    "ast_hash": "a94c038d5f0c74da31a146da565e18c6",
+    "semantic_hash": "a94c038d5f0c74da31a146da565e18c6"
+  },
+  "App/Constantes.py": {
+    "mtime": 1787947565.5365627,
+    "seen": 1788041810.155427,
+    "ast_hash": "f4607744722820cf1ce74ab233d03605",
+    "semantic_hash": "f4607744722820cf1ce74ab233d03605"
+  },
+  "App/Dialogs/Actividades.py": {
+    "mtime": 1787940401.5909574,
+    "seen": 1788041810.1554277,
+    "ast_hash": "5f7a475cbeae5fd1cd43f9c7cf40e609",
+    "semantic_hash": "5f7a475cbeae5fd1cd43f9c7cf40e609"
+  },
+  "App/Dialogs/Comision.py": {
+    "mtime": 1785789545.7784586,
+    "seen": 1788041810.1554284,
+    "ast_hash": "1658cf8b6d80504ebb294881a6dd8b83",
+    "semantic_hash": "1658cf8b6d80504ebb294881a6dd8b83"
+  },
+  "App/Dialogs/Justificaciones.py": {
+    "mtime": 1787947592.3722467,
+    "seen": 1788041810.1554291,
+    "ast_hash": "ce39595d96a3ee09e66535e15b5792c6",
+    "semantic_hash": "ce39595d96a3ee09e66535e15b5792c6"
+  },
+  "App/Dialogs/__init__.py": {
+    "mtime": 1783652207.7294974,
+    "seen": 1788041810.1554298,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": "d41d8cd98f00b204e9800998ecf8427e"
+  },
+  "App/GUI.py": {
+    "mtime": 1788038174.3575485,
+    "seen": 1788041810.1554308,
+    "ast_hash": "983f431d199aa1552fc5e19ee57f9cdb",
+    "semantic_hash": "983f431d199aa1552fc5e19ee57f9cdb"
+  },
+  "App/Login.py": {
+    "mtime": 1787608256.1865609,
+    "seen": 1788041810.1554315,
+    "ast_hash": "957a1db38e056b0b44d83930dc197867",
+    "semantic_hash": "957a1db38e056b0b44d83930dc197867"
+  },
+  "App/Manager.py": {
+    "mtime": 1670024938.0,
+    "seen": 1788041810.1554322,
+    "ast_hash": "e9eef3066a5723013dcbbf819e9ad949",
+    "semantic_hash": "e9eef3066a5723013dcbbf819e9ad949"
+  },
+  "App/PermisoCamera.py": {
+    "mtime": 1787608256.1865609,
+    "seen": 1788041810.155433,
+    "ast_hash": "a66339f946f7cc56bc08ed607b90bded",
+    "semantic_hash": "a66339f946f7cc56bc08ed607b90bded"
+  },
+  "App/Solicitudes.py": {
+    "mtime": 1736538739.2854116,
+    "seen": 1788041810.1554337,
+    "ast_hash": "b6d7f193f2f443ad0cb61fb55b58130c",
+    "semantic_hash": "b6d7f193f2f443ad0cb61fb55b58130c"
+  },
+  "App/StreamServer.py": {
+    "mtime": 1787116483.008843,
+    "seen": 1788041810.1554346,
+    "ast_hash": "823818ca42376360270b12064b47c6b8",
+    "semantic_hash": "823818ca42376360270b12064b47c6b8"
+  },
+  "App/Tracker.py": {
+    "mtime": 1783655011.757966,
+    "seen": 1788041810.155435,
+    "ast_hash": "412c17caf59255984693b4752892a42d",
+    "semantic_hash": "412c17caf59255984693b4752892a42d"
+  },
+  "App/Tracker_Utils/Lista.py": {
+    "mtime": 1670024938.0,
+    "seen": 1788041810.1554358,
+    "ast_hash": "6f4b2aad283a85570700225e83e0064b",
+    "semantic_hash": "6f4b2aad283a85570700225e83e0064b"
+  },
+  "App/Tracker_Utils/Programa.py": {
+    "mtime": 1670024938.0,
+    "seen": 1788041810.1554365,
+    "ast_hash": "f43f3a3fd9b0e34c1313858de2070191",
+    "semantic_hash": "f43f3a3fd9b0e34c1313858de2070191"
+  },
+  "App/Tracker_Utils/Tiempo.py": {
+    "mtime": 1670024938.0,
+    "seen": 1788041810.1554372,
+    "ast_hash": "2e0fe26a7bdd388bff20549e6b002593",
+    "semantic_hash": "2e0fe26a7bdd388bff20549e6b002593"
+  },
+  "App/Tracker_Utils/__init__.py": {
+    "mtime": 1783652207.8264735,
+    "seen": 1788041810.1554382,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": "d41d8cd98f00b204e9800998ecf8427e"
+  },
+  "App/Usuario.py": {
+    "mtime": 1787941710.532808,
+    "seen": 1788041810.1554394,
+    "ast_hash": "2bd89e32982f7433b896c29208f7395c",
+    "semantic_hash": "2bd89e32982f7433b896c29208f7395c"
+  },
+  "App/main.py": {
+    "mtime": 1787191245.4436305,
+    "seen": 1788041810.15544,
+    "ast_hash": "780eedf61ec0d9da5769f7da1eee2f89",
+    "semantic_hash": "780eedf61ec0d9da5769f7da1eee2f89"
+  },
+  "App/programas.json": {
+    "mtime": 1783468645.3835933,
+    "seen": 1788041810.1554406,
+    "ast_hash": "eb5d279b5dca08943d48d6b092687ac1",
+    "semantic_hash": "eb5d279b5dca08943d48d6b092687ac1"
+  },
+  "App/rthook_face_recognition.py": {
+    "mtime": 1783654158.022828,
+    "seen": 1788041810.1554415,
+    "ast_hash": "88f58d06fe99b0ef52f96c6471a0ad09",
+    "semantic_hash": "88f58d06fe99b0ef52f96c6471a0ad09"
+  },
+  "programas.json": {
+    "mtime": 1788040249.755589,
+    "seen": 1788041810.1554422,
+    "ast_hash": "8236660261769ca344493ffcf25863f8",
+    "semantic_hash": "8236660261769ca344493ffcf25863f8"
+  },
+  "App/.github/skills/.copilot/skills/graphify/SKILL.md": {
+    "mtime": 1788040887.9483786,
+    "seen": 1788041810.155443,
+    "ast_hash": "1656a8a8e4a05bbe69f32cd15de81e87",
+    "semantic_hash": "1656a8a8e4a05bbe69f32cd15de81e87"
+  },
+  "App/.github/skills/.copilot/skills/graphify/references/add-watch.md": {
+    "mtime": 1788040285.5356753,
+    "seen": 1788041810.1554437,
+    "ast_hash": "d59d027fe449f06aa03905a01184e779",
+    "semantic_hash": "d59d027fe449f06aa03905a01184e779"
+  },
+  "App/.github/skills/.copilot/skills/graphify/references/exports.md": {
+    "mtime": 1788040285.5356753,
+    "seen": 1788041810.1554441,
+    "ast_hash": "9da2a2152e60a22f07f05fed5158f287",
+    "semantic_hash": "9da2a2152e60a22f07f05fed5158f287"
+  },
+  "App/.github/skills/.copilot/skills/graphify/references/extraction-spec.md": {
+    "mtime": 1788040285.5371804,
+    "seen": 1788041810.155445,
+    "ast_hash": "42fef56a01698118f7fd722acdadea34",
+    "semantic_hash": "42fef56a01698118f7fd722acdadea34"
+  },
+  "App/.github/skills/.copilot/skills/graphify/references/github-and-merge.md": {
+    "mtime": 1788040285.5381875,
+    "seen": 1788041810.1554458,
+    "ast_hash": "cde13df085e4c492aeb7ba298a996d0d",
+    "semantic_hash": "cde13df085e4c492aeb7ba298a996d0d"
+  },
+  "App/.github/skills/.copilot/skills/graphify/references/hooks.md": {
+    "mtime": 1788040285.53919,
+    "seen": 1788041810.1554465,
+    "ast_hash": "3f545db6ce646650bb9de588f5512a27",
+    "semantic_hash": "3f545db6ce646650bb9de588f5512a27"
+  },
+  "App/.github/skills/.copilot/skills/graphify/references/query.md": {
+    "mtime": 1788040285.540696,
+    "seen": 1788041810.1554472,
+    "ast_hash": "3c46f8ad006874260614ed8657d02307",
+    "semantic_hash": "3c46f8ad006874260614ed8657d02307"
+  },
+  "App/.github/skills/.copilot/skills/graphify/references/transcribe.md": {
+    "mtime": 1788040285.5417042,
+    "seen": 1788041810.1554477,
+    "ast_hash": "67b6a5fa6c0974e18f60db9f8932fbd8",
+    "semantic_hash": "67b6a5fa6c0974e18f60db9f8932fbd8"
+  },
+  "App/.github/skills/.copilot/skills/graphify/references/update.md": {
+    "mtime": 1788040285.5417042,
+    "seen": 1788041810.1554487,
+    "ast_hash": "9378bd03d56baaf78bd738ab3848f142",
+    "semantic_hash": "9378bd03d56baaf78bd738ab3848f142"
+  },
+  "README.md": {
+    "mtime": 1670024938.0,
+    "seen": 1788041810.1554494,
+    "ast_hash": "bf360275ba0cfdad5b280c7dcf801a12",
+    "semantic_hash": "bf360275ba0cfdad5b280c7dcf801a12"
+  },
+  "requirements.txt": {
+    "mtime": 1787116658.6351023,
+    "seen": 1788041810.1554503,
+    "ast_hash": "dd1761f3f7f0a0fa42afa6600766b406",
+    "semantic_hash": "dd1761f3f7f0a0fa42afa6600766b406"
+  }
+}

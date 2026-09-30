@@ -1,4 +1,6 @@
 import time
+from urllib.parse import quote
+from collections import namedtuple
 from Constantes import *
 from PyQt5.QtGui import *
 from Camara import Camara
@@ -67,6 +69,15 @@ class GUI(QMainWindow):
         lbl_area = QLabel(usuario.personal.AREA)
         lbl_area.setStyleSheet("color: #94A3B8; font-size: 12px; font-family: Arial;")
         self.layout_gui.addWidget(lbl_area)
+
+        self.lbl_tard = QLabel()
+        self.lbl_tard.setStyleSheet(
+            "color: #FCA5A5; font-size: 12px; font-weight: bold; font-family: Arial;"
+            "background-color: #450A0A; border-radius: 4px; padding: 3px 6px;"
+        )
+        self.lbl_tard.hide()
+        self.layout_gui.addWidget(self.lbl_tard)
+        self._actualizar_tardanza()
 
         # Indicador de estado de jornada
         status_row = QHBoxLayout()
@@ -187,12 +198,15 @@ class GUI(QMainWindow):
         self.camara.start()
         self.camara.ImageUpdate.connect(self.ImageUpdateSlot)
 
-        # Tracker -> Programas
+        # Tracker -> Programas (se inicia recién al comenzar la jornada, ver iniciar_jornada)
         self.tracker = Tracker()
-        self.tracker.start()
 
         self._ts_ausencia = None  # timestamp cuando desaparece la cara
         self._ts_sin_cara = None   # timestamp del primer frame sin cara (período de gracia)
+        self._ts_ausencia_last_tick = None  # último tick para acumulación incremental
+        self._minutos_ultimo_update = 0  # último entero de minutos sincronizado con el servidor
+        self._notif_inicio_refrig = False  # evita repetir el aviso durante el mismo minuto
+        self._notif_fin_refrig = False
 
         # Timer 1 segundo
         timer_1s = QTimer(self)
@@ -217,16 +231,22 @@ class GUI(QMainWindow):
         # Programas -> Timer
         programas_timer = QTimer(self)
         programas_timer.timeout.connect(self.verificacion_programas)
-        # programas_timer.start(int(usuario.parametros.VERIFICACION_PROGRAMA_MINUTOS) * 60000)
+        programas_timer.start(1 * 60000)
+
+        # Supervisión -> Timer (captura periódica de cámara y pantalla)
+        self.supervision_timer = QTimer(self)
+        self.supervision_timer.timeout.connect(self.evento_supervision)
+        self.supervision_timer.start(SUPERVISION_INTERVALO_MINUTOS * 60000)
     
     def timer_1s(self) -> None:
         self.mostrar_fecha_hora()
         self._actualizar_sesion()
-        if usuario.parametros.HORA_INICIO_REFRIGERIO_PRG != '' and usuario.parametros.HORA_FIN_REFRIGERIO_PRG != '':
-            usuario.estado = True
-            self.verificar_refrigerios()
-        if self.sesion_inicio_ts is not None and usuario.estado:
+        if self.sesion_inicio_ts is not None:
             self._verificar_presencia_camara()
+            if (usuario.asistencia is not None
+                    and usuario.asistencia.HORA_INICIO_REFRIGERIO_PRG != ''
+                    and usuario.asistencia.HORA_FIN_REFRIGERIO_PRG != ''):
+                self.verificar_refrigerios()
 
     def _actualizar_sesion(self) -> None:
         if self.sesion_inicio_ts is not None:
@@ -238,43 +258,69 @@ class GUI(QMainWindow):
     _GRACE_SECONDS = 5  # segundos sin cara antes de contar como ausencia
 
     def _verificar_presencia_camara(self) -> None:
+        if not usuario.estado:  # no contar ausencia durante refrigerio u otras pausas
+            return
         if not self.camara.ubicacion_cara:
             if self._ts_sin_cara is None:
                 self._ts_sin_cara = time.time()
             if self._ts_ausencia is None and (time.time() - self._ts_sin_cara) >= self._GRACE_SECONDS:
                 self._ts_ausencia = self._ts_sin_cara
+                self._ts_ausencia_last_tick = self._ts_ausencia
+                self._minutos_ultimo_update = int(usuario.minutos_ausentes)
                 self.status_dot.setStyleSheet("background-color: #EF4444; border-radius: 5px;")
                 self.status_text.setText("No detectado en cámara")
             elif self._ts_ausencia is not None:
-                elapsed = time.time() - self._ts_ausencia
-                total = usuario.minutos_ausentes + elapsed / 60
-                self.minutos_improductivos_label.setText("Minutos Improductivos: {}".format(int(total)))
+                now = time.time()
+                usuario.minutos_ausentes += (now - self._ts_ausencia_last_tick) / 60
+                self._ts_ausencia_last_tick = now
+                self.minutos_improductivos_label.setText("Minutos Improductivos: {}".format(int(usuario.minutos_ausentes)))
+                if int(usuario.minutos_ausentes) > self._minutos_ultimo_update:
+                    self._minutos_ultimo_update = int(usuario.minutos_ausentes)
+                    self._sincronizar_minutos()
         else:
             self._ts_sin_cara = None
+            self.status_dot.setStyleSheet("background-color: #22C55E; border-radius: 5px;")
+            self.status_text.setText("Jornada activa")
             if self._ts_ausencia is not None:
-                elapsed = time.time() - self._ts_ausencia
-                minutos = elapsed / 60
-                usuario.minutos_ausentes += minutos
+                now = time.time()
+                usuario.minutos_ausentes += (now - self._ts_ausencia_last_tick) / 60
+                total_minutos_ausencia = (now - self._ts_ausencia) / 60
                 self._ts_ausencia = None
-                self.status_dot.setStyleSheet("background-color: #22C55E; border-radius: 5px;")
-                self.status_text.setText("Jornada activa")
+                self._ts_ausencia_last_tick = None
+                self.minutos_improductivos_label.setText("Minutos Improductivos: {}".format(int(usuario.minutos_ausentes)))
+                self._sincronizar_minutos()
                 intervalo = int(usuario.parametros.VERIFICACION_EVENTO_MINUTOS or 5)
-                if minutos >= intervalo:
-                    self.grabar_evento(None, ID_EVENTO_AUSENTE,
+                if total_minutos_ausencia >= intervalo:
+                    self.grabar_evento(ID_EVENTO_AUSENTE,
                         DESCRIPCION_EVENTO_AUSENTE.format(intervalo),
-                        time.time(), self.camara.get_frame())
-                self.actualizar_minutos_improductivos()
+                        now, self.camara.get_frame())
 
     def ImageUpdateSlot(self, Image) -> None:
         self.video_label.setPixmap(QPixmap.fromImage(Image))
-    
-    def grabar_evento(self, id_tipo_justifica: str, id_evento: str, descripcion_evento: str, tiempo: float, prueba: str):
-        json = {"ID_TIPO_JUSTIFICA": id_tipo_justifica,
+
+    def _actualizar_tardanza(self) -> None:
+        tardanza_min = None
+        if usuario.asistencia is not None:
+            tardanza_min = getattr(usuario.asistencia, 'TARDANZA', None)
+        if tardanza_min:
+            horas, mins = divmod(int(tardanza_min), 60)
+            texto_tard = f"Tardanza: {horas}h {mins}m" if horas else f"Tardanza: {mins}m"
+            self.lbl_tard.setText(texto_tard)
+            self.lbl_tard.show()
+        else:
+            self.lbl_tard.hide()
+
+    def grabar_evento(self, id_evento: str, descripcion_evento: str, tiempo: float, prueba: str, captura_pc: str = None):
+        if captura_pc is None:
+            captura_pc = self.manager.capturar_pantalla()
+        json = {
                 "ID_EVENTO": id_evento,
                 "DESCRIPCION_EVENTO": descripcion_evento,
-                "TIEMPO": time.strftime('%d-%m-%Y %H:%M:%S', time.localtime(tiempo)),
+                "HORA_REGISTRO": time.strftime('%d-%m-%Y %H:%M:%S', time.localtime(tiempo)),
                 "ID_PERSONAL": usuario.personal.ID_PERSONAL,
+                "ID_EMPRESA": usuario.personal.ID_EMPRESA,
                 "PRUEBA": prueba,
+                "CAPTURA_PC": captura_pc,
                 "NOMBRE_PC": self.manager.nombre_pc,
                 "IP_PRIVADA": self.manager.ip_privada,
                 "IP_PUBLICA": self.manager.ip_publica}
@@ -286,16 +332,39 @@ class GUI(QMainWindow):
 
     def mostrar_fecha_hora(self) -> None:
         self.fecha_hora_label.setText(QDateTime.currentDateTime().toString('dd/MM/yyyy \n hh:mm:ss'))
-    
+
+    def _mostrar_aviso(self, titulo: str, mensaje: str) -> None:
+        # No modal: si la persona aún no regresó no hay quién cierre el diálogo,
+        # y un QMessageBox modal (exec_) detiene el timer_1s hasta que se cierra.
+        aviso = QMessageBox(QMessageBox.Information, titulo, mensaje, QMessageBox.Ok, self)
+        aviso.setWindowModality(Qt.NonModal)
+        aviso.setAttribute(Qt.WA_DeleteOnClose)
+        aviso.show()
+
     def verificar_refrigerios(self) -> None:
         hora_actual = QDateTime.currentDateTime().toString('hh:mm')
-        if usuario.estado and usuario.parametros.HORA_INICIO_REFRIGERIO_PRG == hora_actual:
-            QMessageBox.information(self, 'Importante', 'Inicio de hora de refrigerio programada')
-            self.refrigerio_boton.setEnabled(True)
-            usuario.estado = False
-        if not usuario.estado and usuario.parametros.HORA_FIN_REFRIGERIO_PRG == hora_actual:
-            QMessageBox.information(self, 'Importante', 'Fin de hora de refrigerio programada')
-            usuario.estado = True
+        if hora_actual >= usuario.asistencia.HORA_INICIO_REFRIGERIO_PRG:
+            if not self._notif_inicio_refrig:
+                self._notif_inicio_refrig = True
+                usuario.estado = False
+                usuario.hora_inicio_refrigerio = QDateTime.currentDateTime()
+                self.refrigerio_boton.setEnabled(True)
+                self._mostrar_aviso('Importante', 'Inicio de hora de refrigerio programada')
+                self.grabar_evento(ID_EVENTO_INICIO_REFRIGERIO, DESCRIPCION_EVENTO_INICIO_REFRIGERIO, time.time(), self.camara.get_frame())
+        else:
+            self._notif_inicio_refrig = False
+
+        if hora_actual >= usuario.asistencia.HORA_FIN_REFRIGERIO_PRG:
+            if not self._notif_fin_refrig:
+                self._notif_fin_refrig = True
+                usuario.estado = True
+                self.refrigerio_boton.setEnabled(False)
+                self._mostrar_aviso('Importante', 'Fin de hora de refrigerio programada')
+                self.grabar_evento(ID_EVENTO_FIN_REFRIGERIO, DESCRIPCION_EVENTO_FIN_REFRIGERIO, time.time(), self.camara.get_frame())
+                url = URL + '/refrigerio/inicia/{0}'.format(usuario.personal.ID_PERSONAL)
+                solicitud("PUT", url)
+        else:
+            self._notif_fin_refrig = False
     
     def iniciar_jornada(self) -> None:
         json_data = {
@@ -308,17 +377,26 @@ class GUI(QMainWindow):
             self.sesion_inicio_ts = time.time()
             self.status_dot.setStyleSheet("background-color: #22C55E; border-radius: 5px;")
             self.status_text.setText("Jornada activa")
-            self.grabar_evento(None, ID_EVENTO_INICIA, DESCRIPCION_EVENTO_INICIA, time.time(), self.camara.get_frame())
+            datos_asistencia = respuesta.get('datos') if isinstance(respuesta, dict) else None
+            if isinstance(datos_asistencia, dict):
+                actual = usuario.asistencia._asdict() if usuario.asistencia is not None else {}
+                actual.update(datos_asistencia)
+                usuario.asistencia = namedtuple("Asistencia", actual.keys())(*actual.values())
+                self._actualizar_tardanza()
+            if not self.tracker.isRunning():
+                self.tracker.start()
+            self.grabar_evento(ID_EVENTO_INICIA, DESCRIPCION_EVENTO_INICIA, time.time(), self.camara.get_frame())
             self.iniciar_boton.setEnabled(False)
             self.finalizar_boton.setEnabled(True)
             self.justificar_boton.setEnabled(True)
             self.comision_boton.setEnabled(True)
             self.actividades_boton.setEnabled(True)
+            self.obtener_minutos_improductivos()
         else:
             QMessageBox.warning(self, 'Error', respuesta['mensaje'])
         
     def finalizar_jornada(self) -> None:
-        if self.grabar_evento(None, ID_EVENTO_FINALIZA, DESCRIPCION_EVENTO_FINALIZA, time.time(), self.camara.get_frame()):
+        if self.grabar_evento(ID_EVENTO_FINALIZA, DESCRIPCION_EVENTO_FINALIZA, time.time(), self.camara.get_frame()):
             url = URL + '/asistencia/finaliza/{0}'.format(usuario.personal.ID_PERSONAL)
             estado, respuesta = solicitud("PUT", url)
             if estado:
@@ -337,7 +415,9 @@ class GUI(QMainWindow):
             estado, respuesta = solicitud("PUT", url)
             if estado:
                 usuario.refrigerio = True
+                usuario.hora_inicio_refrigerio = QDateTime.currentDateTime()
                 self.refrigerio_boton.setText("Finalizar refrigerio")
+                self.grabar_evento(ID_EVENTO_INICIO_REFRIGERIO, DESCRIPCION_EVENTO_INICIO_REFRIGERIO, time.time(), self.camara.get_frame())
             else:
                 QMessageBox.warning(self, 'Error', respuesta['mensaje'])
         else:
@@ -345,6 +425,7 @@ class GUI(QMainWindow):
             estado, respuesta = solicitud("PUT", url)
             if estado:
                 usuario.refrigerio = False
+                self.grabar_evento(ID_EVENTO_FIN_REFRIGERIO, DESCRIPCION_EVENTO_FIN_REFRIGERIO, time.time(), self.camara.get_frame())
                 self.layout_gui.removeWidget(self.refrigerio_boton)
                 self.refrigerio_boton = None
             else:
@@ -355,10 +436,21 @@ class GUI(QMainWindow):
         jutificacion_ventana.show()
 
     def registrar_justificacion(self, id, justificacion):
-        self.grabar_evento(id, ID_EVENTO_JUSTIFICADO, DESCRIPCION_EVENTO_JUSTIFICADO + justificacion, time.time(), self.camara.get_frame())
+        self.grabar_evento(ID_EVENTO_JUSTIFICADO, DESCRIPCION_EVENTO_JUSTIFICADO + justificacion, time.time(), self.camara.get_frame())
 
-    def registrar_comision(self, razon):
-        self.grabar_evento(None, ID_EVENTO_COMISION, DESCRIPCION_EVENTO_COMISION + razon, time.time(), self.camara.get_frame())
+    def evento_supervision(self) -> None:
+        if usuario.estado:
+            self.grabar_evento(ID_EVENTO_SUPERVISION, DESCRIPCION_EVENTO_SUPERVISION, time.time(), self.camara.get_frame())
+
+    def registrar_comision(self, razon, fecha_hora_regreso: QDateTime):
+        self.grabar_evento(ID_EVENTO_COMISION, DESCRIPCION_EVENTO_COMISION + razon, time.time(), self.camara.get_frame())
+        ms_restantes = QDateTime.currentDateTime().msecsTo(fecha_hora_regreso)
+        if ms_restantes > 0:
+            QTimer.singleShot(ms_restantes, self.finalizar_comision)
+
+    def finalizar_comision(self):
+        self._resetear_ausencia()
+        usuario.estado = True
 
     def evento_comision(self):
         comision_ventana = Comision(self)
@@ -383,11 +475,38 @@ class GUI(QMainWindow):
             self.verificar_timer.setInterval(int(usuario.parametros.VERIFICACION_EVENTO_MINUTOS)  * 60000)
             self.actualizar_minutos_improductivos()
             if int(minutos) >= int(usuario.parametros.VERIFICACION_EVENTO_MINUTOS):
-                if self.grabar_evento(None, ID_EVENTO_AUSENTE, DESCRIPCION_EVENTO_AUSENTE.format(usuario.parametros.VERIFICACION_EVENTO_MINUTOS), usuario.timestap_inicio, self.camara.get_frame()):
+                if self.grabar_evento(ID_EVENTO_AUSENTE, DESCRIPCION_EVENTO_AUSENTE.format(usuario.parametros.VERIFICACION_EVENTO_MINUTOS), usuario.timestap_inicio, self.camara.get_frame()):
                     QMessageBox.information(self, 'Importante', 'Evento de ausencia enviado')
                 else:
                     QMessageBox.warning(self, 'Error', 'No se pudo enviar el evento')
     
+    def _resetear_ausencia(self):
+        self._ts_sin_cara = None
+        self._ts_ausencia = None
+        self._ts_ausencia_last_tick = None
+        self._minutos_ultimo_update = int(usuario.minutos_ausentes)
+
+    def _sincronizar_minutos(self):
+        url = URL + '/minutos/improductivos/{0}/{1}'.format(usuario.personal.ID_PERSONAL, int(usuario.minutos_ausentes))
+        solicitud("PUT", url)
+
+    def aplicar_descuento_refrigerio(self, minutos: int) -> None:
+        if minutos <= 0:
+            return
+        usuario.minutos_ausentes = max(usuario.minutos_ausentes - minutos, 0)
+        self.minutos_improductivos_label.setText("Minutos Improductivos: {0}".format(int(usuario.minutos_ausentes)))
+        self._minutos_ultimo_update = int(usuario.minutos_ausentes)
+        self._sincronizar_minutos()
+
+    def obtener_minutos_improductivos(self):
+        fecha_inicio = quote(time.strftime('%d-%m-%y', time.localtime(self.sesion_inicio_ts)))
+        url = URL + '/minutos/improductivos/{0}/{1}'.format(usuario.personal.ID_PERSONAL, fecha_inicio)
+        estado, respuesta = solicitud("GET", url)
+        if estado:
+            minutos = respuesta['datos'].get('MINUTOS_IMPRODUCTIVOS', 0) or 0
+            usuario.minutos_ausentes = float(minutos)
+            self.minutos_improductivos_label.setText("Minutos Improductivos: {}".format(int(usuario.minutos_ausentes)))
+
     def actualizar_minutos_improductivos(self):
         self.minutos_improductivos_label.setText("Minutos Improductivos: {0}".format(int(usuario.minutos_ausentes)))
         url = URL + '/minutos/improductivos/{0}/{1}'.format(usuario.personal.ID_PERSONAL, int(usuario.minutos_ausentes))
@@ -399,21 +518,28 @@ class GUI(QMainWindow):
     
     def mandar_avances(self):
         if usuario.estado:
-            if self.grabar_evento(None, ID_EVENTO_AVANCE, DESCRIPCION_EVENTO_AVANCE, time.time(), self.manager.capturar_pantalla()):
+            if self.grabar_evento(ID_EVENTO_AVANCE, DESCRIPCION_EVENTO_AVANCE, time.time(), self.camara.get_frame()):
                 QMessageBox.information(self, 'Importante', 'Avance enviado')
             else:
                 QMessageBox.warning(self, 'Error', 'No se pudo enviar el avance')
 
     def verificacion_programas(self):
         programas = self.manager.detectar_programas(usuario.programas)
-        if len(programas) > 0 and usuario.estado:
-            if self.grabar_evento(None, ID_EVENTO_PROGRAMAS, DESCRIPCION_EVENTO_PROGRAMAS, time.time(), self.manager.capturar_pantalla()):
-                if len(self.manager.detectar_programas(usuario.programas)) == 1:
-                    QMessageBox.warning(self, 'Error', 'El siguiente programa se ha detectado: {0}'.format(self.manager.detectar_programas(usuario.programas)))
+        paginas = self.manager.detectar_paginas(usuario.paginas)
+        detectados = programas + paginas
+        if len(detectados) > 0 and usuario.estado:
+            descripcion = '{}: {}'.format(DESCRIPCION_EVENTO_PROGRAMAS, ', '.join(detectados))
+            if self.grabar_evento(ID_EVENTO_PROGRAMAS, descripcion, time.time(), self.camara.get_frame()):
+                if len(detectados) == 1:
+                    QMessageBox.warning(self, 'Error', 'El siguiente programa se ha detectado: {0}'.format(detectados[0]))
                 else:
                     QMessageBox.warning(self, 'Error', 'Se detectaron múltiples programas en uso')
             else:
                 QMessageBox.warning(self, 'Error', 'No se pudo enviar el evento')
 
     def closeEvent(self, a0: QCloseEvent) -> None:
+        try:
+            solicitud("DELETE", f"{URL}/streaming/{usuario.personal.ID_PERSONAL}")
+        except Exception:
+            pass
         return super().closeEvent(a0)

@@ -1,3 +1,6 @@
+import threading
+import Camara
+import PermisoCamera
 import Constantes
 from datetime import datetime
 
@@ -130,16 +133,16 @@ class Login(QDialog):
         form_layout.setContentsMargins(44, 28, 44, 28)
         form_layout.setSpacing(6)
 
-        form_layout.addWidget(QLabel('Usuario'))
-        self.usuario_input = QLineEdit()
-        self.usuario_input.setPlaceholderText('Ingrese su usuario')
-        form_layout.addWidget(self.usuario_input)
-
-        form_layout.addSpacing(6)
         form_layout.addWidget(QLabel('Empresa'))
         self.empresa_input = QLineEdit()
         self.empresa_input.setPlaceholderText('Ingrese su empresa')
         form_layout.addWidget(self.empresa_input)
+
+        form_layout.addSpacing(6)
+        form_layout.addWidget(QLabel('Usuario'))
+        self.usuario_input = QLineEdit()
+        self.usuario_input.setPlaceholderText('Ingrese su usuario')
+        form_layout.addWidget(self.usuario_input)
 
         form_layout.addSpacing(6)
         form_layout.addWidget(QLabel('Contraseña'))
@@ -173,16 +176,16 @@ class Login(QDialog):
 
         root.addWidget(form_container)
         self.setLayout(root)
-        self.setTabOrder(self.usuario_input, self.empresa_input)
-        self.setTabOrder(self.empresa_input, self.contra_input)
+        self.setTabOrder(self.empresa_input, self.usuario_input)
+        self.setTabOrder(self.usuario_input, self.contra_input)
         self.setTabOrder(self.contra_input, btn)
 
     def validar_usuario(self) -> None:
         self.error_label.hide()
         json = {
-            'ID_PERSONAL': self.usuario_input.text(),
             'ID_EMPRESA': self.empresa_input.text(),
-            'PASSWORD': self.contra_input.text()
+            'USUARIO': self.usuario_input.text(),
+            'PASSWORD_PERSONAL': self.contra_input.text()
         }
         print(json)
         url = Constantes.URL + '/personal'
@@ -191,12 +194,20 @@ class Login(QDialog):
         if estado:
             if 'datos' in respuesta:
                 diccionario = respuesta['datos']
-                asistencia = respuesta.get('asistencia').get('FECHA_HORA_FIN_REAL')
+                asistencia_dict = respuesta.get('asistencia') or {}
+                asistencia = asistencia_dict.get('FECHA_HORA_FIN_REAL')
                 print(asistencia)
                 fecha_hora = datetime.now().strftime('%d-%m-%Y %H:%M:%S')
                 if asistencia:
                     if asistencia > fecha_hora:
                         usuario.personal = namedtuple("Personal", diccionario.keys())(*diccionario.values())
+                        if asistencia_dict:
+                            usuario.asistencia = namedtuple("Asistencia", asistencia_dict.keys())(*asistencia_dict.values())
+                        Camara._id_personal_stream = usuario.personal.ID_PERSONAL
+                        PermisoCamera.iniciar_polling_permisos(
+                            usuario.personal.ID_PERSONAL,
+                            self.parent()
+                        )
                         QMessageBox.information(self, 'Éxito', f"Bienvenido '{usuario.personal.NOMBRE}'")
                         self.accept()
                     else:

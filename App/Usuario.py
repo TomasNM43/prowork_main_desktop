@@ -9,6 +9,7 @@ class Usuario():
         self.asistencia = None
         self.parametros = None
         self.programas = []
+        self.paginas = []
         self.estado = False
         self.justificado = False
         self.comision = False
@@ -17,6 +18,7 @@ class Usuario():
         self.timestap_inicio = None
         self.timestap_fin = None
         self.minutos_ausentes = 0
+        self.hora_inicio_refrigerio = None  # QDateTime real de salida a refrigerio
     
     def obtener_parametros(self):
         url = Constantes.URL + '/parametros/{0}'.format(self.personal.ID_EMPRESA)
@@ -34,7 +36,11 @@ class Usuario():
         if estado:
             data = respuesta['datos']
             for i in data:
-                self.programas.append(i['TIPO_HERRAMIENTA'])
+                tipo = str(i.get('TIPO', 'PROGRAMA')).strip().upper()
+                if tipo == 'PAGINA':
+                    self.paginas.append(i['TIPO_HERRAMIENTA'])
+                else:
+                    self.programas.append(i['TIPO_HERRAMIENTA'])
             return True
         else:
             return False

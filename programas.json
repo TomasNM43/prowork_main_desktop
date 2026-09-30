@@ -7,49 +7,166 @@
                     "dias": 0,
                     "horas": 0,
                     "minutos": 0,
-                    "segundos": 9,
-                    "tiempo_fin": "2025-01-10 22:29:15",
-                    "tiempo_inicio": "2025-01-10 22:29:06"
+                    "segundos": 5,
+                    "tiempo_fin": "2026-09-28 21:31:46",
+                    "tiempo_inicio": "2026-09-28 21:31:40"
+                },
+                {
+                    "dias": 0,
+                    "horas": 0,
+                    "minutos": 0,
+                    "segundos": 0,
+                    "tiempo_fin": "2026-09-28 21:31:58",
+                    "tiempo_inicio": "2026-09-28 21:31:58"
+                },
+                {
+                    "dias": 0,
+                    "horas": 0,
+                    "minutos": 0,
+                    "segundos": 4,
+                    "tiempo_fin": "2026-09-28 21:32:03",
+                    "tiempo_inicio": "2026-09-28 21:31:58"
+                },
+                {
+                    "dias": 0,
+                    "horas": 0,
+                    "minutos": 0,
+                    "segundos": 4,
+                    "tiempo_fin": "2026-09-28 21:32:17",
+                    "tiempo_inicio": "2026-09-28 21:32:13"
                 },
                 {
                     "dias": 0,
                     "horas": 0,
                     "minutos": 0,
                     "segundos": 1,
-                    "tiempo_fin": "2025-01-12 13:38:02",
-                    "tiempo_inicio": "2025-01-12 13:38:00"
-                },
-                {
-                    "dias": 0,
-                    "horas": 0,
-                    "minutos": 0,
-                    "segundos": 31,
-                    "tiempo_fin": "2025-01-12 13:56:33",
-                    "tiempo_inicio": "2025-01-12 13:56:01"
-                },
-                {
-                    "dias": 0,
-                    "horas": 0,
-                    "minutos": 0,
-                    "segundos": 11,
-                    "tiempo_fin": "2025-01-12 14:02:09",
-                    "tiempo_inicio": "2025-01-12 14:01:57"
-                },
-                {
-                    "dias": 0,
-                    "horas": 0,
-                    "minutos": 0,
-                    "segundos": 21,
-                    "tiempo_fin": "2025-01-12 14:04:16",
-                    "tiempo_inicio": "2025-01-12 14:03:54"
+                    "tiempo_fin": "2026-09-28 21:32:22",
+                    "tiempo_inicio": "2026-09-28 21:32:21"
                 },
                 {
                     "dias": 0,
                     "horas": 0,
                     "minutos": 0,
                     "segundos": 14,
-                    "tiempo_fin": "2025-01-12 14:05:23",
-                    "tiempo_inicio": "2025-01-12 14:05:09"
+                    "tiempo_fin": "2026-09-28 21:33:38",
+                    "tiempo_inicio": "2026-09-28 21:33:23"
+                },
+                {
+                    "dias": 0,
+                    "horas": 0,
+                    "minutos": 0,
+                    "segundos": 6,
+                    "tiempo_fin": "2026-09-28 21:33:53",
+                    "tiempo_inicio": "2026-09-28 21:33:46"
+                },
+                {
+                    "dias": 0,
+                    "horas": 0,
+                    "minutos": 0,
+                    "segundos": 0,
+                    "tiempo_fin": "2026-09-28 21:34:37",
+                    "tiempo_inicio": "2026-09-28 21:34:37"
+                },
+                {
+                    "dias": 0,
+                    "horas": 0,
+                    "minutos": 0,
+                    "segundos": 2,
+                    "tiempo_fin": "2026-09-28 21:34:44",
+                    "tiempo_inicio": "2026-09-28 21:34:42"
+                },
+                {
+                    "dias": 0,
+                    "horas": 0,
+                    "minutos": 0,
+                    "segundos": 3,
+                    "tiempo_fin": "2026-09-28 21:37:02",
+                    "tiempo_inicio": "2026-09-28 21:36:59"
+                }
+            ]
+        },
+        {
+            "nombre": "AddEdit - iClassWork - Google Chrome",
+            "timestamp": [
+                {
+                    "dias": 0,
+                    "horas": 0,
+                    "minutos": 0,
+                    "segundos": 3,
+                    "tiempo_fin": "2026-09-28 21:31:49",
+                    "tiempo_inicio": "2026-09-28 21:31:46"
+                },
+                {
+                    "dias": 0,
+                    "horas": 0,
+                    "minutos": 0,
+                    "segundos": 4,
+                    "tiempo_fin": "2026-09-28 21:31:56",
+                    "tiempo_inicio": "2026-09-28 21:31:52"
+                },
+                {
+                    "dias": 0,
+                    "horas": 0,
+                    "minutos": 0,
+                    "segundos": 0,
+                    "tiempo_fin": "2026-09-28 21:32:03",
+                    "tiempo_inicio": "2026-09-28 21:32:03"
+                },
+                {
+                    "dias": 0,
+                    "horas": 0,
+                    "minutos": 0,
+                    "segundos": 0,
+                    "tiempo_fin": "2026-09-28 21:32:07",
+                    "tiempo_inicio": "2026-09-28 21:32:07"
+                },
+                {
+                    "dias": 0,
+                    "horas": 0,
+                    "minutos": 0,
+                    "segundos": 0,
+                    "tiempo_fin": "2026-09-28 21:32:17",
+                    "tiempo_inicio": "2026-09-28 21:32:17"
+                },
+                {
+                    "dias": 0,
+                    "horas": 0,
+                    "minutos": 0,
+                    "segundos": 0,
+                    "tiempo_fin": "2026-09-28 21:32:20",
+                    "tiempo_inicio": "2026-09-28 21:32:20"
+                },
+                {
+                    "dias": 0,
+                    "horas": 0,
+                    "minutos": 0,
+                    "segundos": 2,
+                    "tiempo_fin": "2026-09-28 21:32:25",
+                    "tiempo_inicio": "2026-09-28 21:32:22"
+                },
+                {
+                    "dias": 0,
+                    "horas": 0,
+                    "minutos": 0,
+                    "segundos": 11,
+                    "tiempo_fin": "2026-09-28 21:35:17",
+                    "tiempo_inicio": "2026-09-28 21:35:06"
+                },
+                {
+                    "dias": 0,
+                    "horas": 0,
+                    "minutos": 0,
+                    "segundos": 2,
+                    "tiempo_fin": "2026-09-28 21:35:27",
+                    "tiempo_inicio": "2026-09-28 21:35:25"
+                },
+                {
+                    "dias": 0,
+                    "horas": 0,
+                    "minutos": 0,
+                    "segundos": 0,
+                    "tiempo_fin": "2026-09-28 21:36:57",
+                    "tiempo_inicio": "2026-09-28 21:36:56"
                 }
             ]
         },
@@ -60,49 +177,870 @@
                     "dias": 0,
                     "horas": 0,
                     "minutos": 0,
+                    "segundos": 0,
+                    "tiempo_fin": "2026-09-28 21:31:49",
+                    "tiempo_inicio": "2026-09-28 21:31:49"
+                },
+                {
+                    "dias": 0,
+                    "horas": 0,
+                    "minutos": 0,
+                    "segundos": 0,
+                    "tiempo_fin": "2026-09-28 21:31:52",
+                    "tiempo_inicio": "2026-09-28 21:31:52"
+                },
+                {
+                    "dias": 0,
+                    "horas": 0,
+                    "minutos": 0,
+                    "segundos": 0,
+                    "tiempo_fin": "2026-09-28 21:31:56",
+                    "tiempo_inicio": "2026-09-28 21:31:56"
+                },
+                {
+                    "dias": 0,
+                    "horas": 0,
+                    "minutos": 0,
+                    "segundos": 0,
+                    "tiempo_fin": "2026-09-28 21:31:57",
+                    "tiempo_inicio": "2026-09-28 21:31:56"
+                },
+                {
+                    "dias": 0,
+                    "horas": 0,
+                    "minutos": 0,
+                    "segundos": 0,
+                    "tiempo_fin": "2026-09-28 21:32:03",
+                    "tiempo_inicio": "2026-09-28 21:32:03"
+                },
+                {
+                    "dias": 0,
+                    "horas": 0,
+                    "minutos": 0,
+                    "segundos": 0,
+                    "tiempo_fin": "2026-09-28 21:32:12",
+                    "tiempo_inicio": "2026-09-28 21:32:12"
+                },
+                {
+                    "dias": 0,
+                    "horas": 0,
+                    "minutos": 0,
+                    "segundos": 0,
+                    "tiempo_fin": "2026-09-28 21:32:12",
+                    "tiempo_inicio": "2026-09-28 21:32:12"
+                },
+                {
+                    "dias": 0,
+                    "horas": 0,
+                    "minutos": 0,
+                    "segundos": 0,
+                    "tiempo_fin": "2026-09-28 21:32:12",
+                    "tiempo_inicio": "2026-09-28 21:32:12"
+                },
+                {
+                    "dias": 0,
+                    "horas": 0,
+                    "minutos": 0,
+                    "segundos": 0,
+                    "tiempo_fin": "2026-09-28 21:32:13",
+                    "tiempo_inicio": "2026-09-28 21:32:13"
+                },
+                {
+                    "dias": 0,
+                    "horas": 0,
+                    "minutos": 0,
+                    "segundos": 0,
+                    "tiempo_fin": "2026-09-28 21:32:20",
+                    "tiempo_inicio": "2026-09-28 21:32:20"
+                },
+                {
+                    "dias": 0,
+                    "horas": 0,
+                    "minutos": 0,
+                    "segundos": 0,
+                    "tiempo_fin": "2026-09-28 21:32:20",
+                    "tiempo_inicio": "2026-09-28 21:32:20"
+                },
+                {
+                    "dias": 0,
+                    "horas": 0,
+                    "minutos": 0,
+                    "segundos": 0,
+                    "tiempo_fin": "2026-09-28 21:32:20",
+                    "tiempo_inicio": "2026-09-28 21:32:20"
+                },
+                {
+                    "dias": 0,
+                    "horas": 0,
+                    "minutos": 0,
+                    "segundos": 0,
+                    "tiempo_fin": "2026-09-28 21:32:21",
+                    "tiempo_inicio": "2026-09-28 21:32:21"
+                },
+                {
+                    "dias": 0,
+                    "horas": 0,
+                    "minutos": 0,
+                    "segundos": 0,
+                    "tiempo_fin": "2026-09-28 21:32:22",
+                    "tiempo_inicio": "2026-09-28 21:32:22"
+                },
+                {
+                    "dias": 0,
+                    "horas": 0,
+                    "minutos": 0,
+                    "segundos": 0,
+                    "tiempo_fin": "2026-09-28 21:32:40",
+                    "tiempo_inicio": "2026-09-28 21:32:40"
+                },
+                {
+                    "dias": 0,
+                    "horas": 0,
+                    "minutos": 0,
+                    "segundos": 0,
+                    "tiempo_fin": "2026-09-28 21:32:41",
+                    "tiempo_inicio": "2026-09-28 21:32:41"
+                },
+                {
+                    "dias": 0,
+                    "horas": 0,
+                    "minutos": 0,
+                    "segundos": 0,
+                    "tiempo_fin": "2026-09-28 21:32:47",
+                    "tiempo_inicio": "2026-09-28 21:32:47"
+                },
+                {
+                    "dias": 0,
+                    "horas": 0,
+                    "minutos": 0,
+                    "segundos": 0,
+                    "tiempo_fin": "2026-09-28 21:32:48",
+                    "tiempo_inicio": "2026-09-28 21:32:48"
+                },
+                {
+                    "dias": 0,
+                    "horas": 0,
+                    "minutos": 0,
+                    "segundos": 0,
+                    "tiempo_fin": "2026-09-28 21:32:49",
+                    "tiempo_inicio": "2026-09-28 21:32:49"
+                },
+                {
+                    "dias": 0,
+                    "horas": 0,
+                    "minutos": 0,
+                    "segundos": 0,
+                    "tiempo_fin": "2026-09-28 21:32:49",
+                    "tiempo_inicio": "2026-09-28 21:32:49"
+                },
+                {
+                    "dias": 0,
+                    "horas": 0,
+                    "minutos": 0,
+                    "segundos": 0,
+                    "tiempo_fin": "2026-09-28 21:32:55",
+                    "tiempo_inicio": "2026-09-28 21:32:55"
+                },
+                {
+                    "dias": 0,
+                    "horas": 0,
+                    "minutos": 0,
+                    "segundos": 0,
+                    "tiempo_fin": "2026-09-28 21:33:23",
+                    "tiempo_inicio": "2026-09-28 21:33:23"
+                },
+                {
+                    "dias": 0,
+                    "horas": 0,
+                    "minutos": 0,
+                    "segundos": 0,
+                    "tiempo_fin": "2026-09-28 21:33:23",
+                    "tiempo_inicio": "2026-09-28 21:33:23"
+                },
+                {
+                    "dias": 0,
+                    "horas": 0,
+                    "minutos": 0,
+                    "segundos": 0,
+                    "tiempo_fin": "2026-09-28 21:33:46",
+                    "tiempo_inicio": "2026-09-28 21:33:46"
+                },
+                {
+                    "dias": 0,
+                    "horas": 0,
+                    "minutos": 0,
+                    "segundos": 0,
+                    "tiempo_fin": "2026-09-28 21:33:53",
+                    "tiempo_inicio": "2026-09-28 21:33:53"
+                },
+                {
+                    "dias": 0,
+                    "horas": 0,
+                    "minutos": 0,
+                    "segundos": 0,
+                    "tiempo_fin": "2026-09-28 21:34:35",
+                    "tiempo_inicio": "2026-09-28 21:34:34"
+                },
+                {
+                    "dias": 0,
+                    "horas": 0,
+                    "minutos": 0,
+                    "segundos": 0,
+                    "tiempo_fin": "2026-09-28 21:34:40",
+                    "tiempo_inicio": "2026-09-28 21:34:40"
+                },
+                {
+                    "dias": 0,
+                    "horas": 0,
+                    "minutos": 0,
+                    "segundos": 0,
+                    "tiempo_fin": "2026-09-28 21:34:42",
+                    "tiempo_inicio": "2026-09-28 21:34:42"
+                },
+                {
+                    "dias": 0,
+                    "horas": 0,
+                    "minutos": 0,
+                    "segundos": 0,
+                    "tiempo_fin": "2026-09-28 21:34:44",
+                    "tiempo_inicio": "2026-09-28 21:34:44"
+                },
+                {
+                    "dias": 0,
+                    "horas": 0,
+                    "minutos": 0,
+                    "segundos": 0,
+                    "tiempo_fin": "2026-09-28 21:35:17",
+                    "tiempo_inicio": "2026-09-28 21:35:17"
+                },
+                {
+                    "dias": 0,
+                    "horas": 0,
+                    "minutos": 0,
+                    "segundos": 0,
+                    "tiempo_fin": "2026-09-28 21:35:19",
+                    "tiempo_inicio": "2026-09-28 21:35:19"
+                },
+                {
+                    "dias": 0,
+                    "horas": 0,
+                    "minutos": 0,
+                    "segundos": 0,
+                    "tiempo_fin": "2026-09-28 21:35:19",
+                    "tiempo_inicio": "2026-09-28 21:35:19"
+                },
+                {
+                    "dias": 0,
+                    "horas": 0,
+                    "minutos": 0,
+                    "segundos": 0,
+                    "tiempo_fin": "2026-09-28 21:35:27",
+                    "tiempo_inicio": "2026-09-28 21:35:27"
+                },
+                {
+                    "dias": 0,
+                    "horas": 0,
+                    "minutos": 0,
+                    "segundos": 0,
+                    "tiempo_fin": "2026-09-28 21:35:28",
+                    "tiempo_inicio": "2026-09-28 21:35:28"
+                },
+                {
+                    "dias": 0,
+                    "horas": 0,
+                    "minutos": 0,
+                    "segundos": 0,
+                    "tiempo_fin": "2026-09-28 21:36:55",
+                    "tiempo_inicio": "2026-09-28 21:36:55"
+                },
+                {
+                    "dias": 0,
+                    "horas": 0,
+                    "minutos": 0,
+                    "segundos": 0,
+                    "tiempo_fin": "2026-09-28 21:36:55",
+                    "tiempo_inicio": "2026-09-28 21:36:55"
+                },
+                {
+                    "dias": 0,
+                    "horas": 0,
+                    "minutos": 0,
+                    "segundos": 0,
+                    "tiempo_fin": "2026-09-28 21:36:56",
+                    "tiempo_inicio": "2026-09-28 21:36:56"
+                },
+                {
+                    "dias": 0,
+                    "horas": 0,
+                    "minutos": 0,
+                    "segundos": 0,
+                    "tiempo_fin": "2026-09-28 21:36:57",
+                    "tiempo_inicio": "2026-09-28 21:36:57"
+                },
+                {
+                    "dias": 0,
+                    "horas": 0,
+                    "minutos": 0,
+                    "segundos": 1,
+                    "tiempo_fin": "2026-09-28 21:36:59",
+                    "tiempo_inicio": "2026-09-28 21:36:58"
+                },
+                {
+                    "dias": 0,
+                    "horas": 0,
+                    "minutos": 0,
+                    "segundos": 0,
+                    "tiempo_fin": "2026-09-28 21:37:02",
+                    "tiempo_inicio": "2026-09-28 21:37:02"
+                }
+            ]
+        },
+        {
+            "nombre": "Conmutaci\u00f3n de tareas",
+            "timestamp": [
+                {
+                    "dias": 0,
+                    "horas": 0,
+                    "minutos": 0,
+                    "segundos": 2,
+                    "tiempo_fin": "2026-09-28 21:31:52",
+                    "tiempo_inicio": "2026-09-28 21:31:49"
+                },
+                {
+                    "dias": 0,
+                    "horas": 0,
+                    "minutos": 0,
+                    "segundos": 0,
+                    "tiempo_fin": "2026-09-28 21:31:56",
+                    "tiempo_inicio": "2026-09-28 21:31:56"
+                },
+                {
+                    "dias": 0,
+                    "horas": 0,
+                    "minutos": 0,
+                    "segundos": 0,
+                    "tiempo_fin": "2026-09-28 21:32:12",
+                    "tiempo_inicio": "2026-09-28 21:32:12"
+                },
+                {
+                    "dias": 0,
+                    "horas": 0,
+                    "minutos": 0,
+                    "segundos": 0,
+                    "tiempo_fin": "2026-09-28 21:32:13",
+                    "tiempo_inicio": "2026-09-28 21:32:12"
+                },
+                {
+                    "dias": 0,
+                    "horas": 0,
+                    "minutos": 0,
+                    "segundos": 0,
+                    "tiempo_fin": "2026-09-28 21:32:20",
+                    "tiempo_inicio": "2026-09-28 21:32:20"
+                },
+                {
+                    "dias": 0,
+                    "horas": 0,
+                    "minutos": 0,
+                    "segundos": 0,
+                    "tiempo_fin": "2026-09-28 21:32:21",
+                    "tiempo_inicio": "2026-09-28 21:32:20"
+                },
+                {
+                    "dias": 0,
+                    "horas": 0,
+                    "minutos": 0,
+                    "segundos": 0,
+                    "tiempo_fin": "2026-09-28 21:32:41",
+                    "tiempo_inicio": "2026-09-28 21:32:40"
+                },
+                {
+                    "dias": 0,
+                    "horas": 0,
+                    "minutos": 0,
+                    "segundos": 1,
+                    "tiempo_fin": "2026-09-28 21:32:48",
+                    "tiempo_inicio": "2026-09-28 21:32:47"
+                },
+                {
+                    "dias": 0,
+                    "horas": 0,
+                    "minutos": 0,
+                    "segundos": 0,
+                    "tiempo_fin": "2026-09-28 21:32:49",
+                    "tiempo_inicio": "2026-09-28 21:32:49"
+                },
+                {
+                    "dias": 0,
+                    "horas": 0,
+                    "minutos": 0,
+                    "segundos": 0,
+                    "tiempo_fin": "2026-09-28 21:35:19",
+                    "tiempo_inicio": "2026-09-28 21:35:19"
+                },
+                {
+                    "dias": 0,
+                    "horas": 0,
+                    "minutos": 0,
+                    "segundos": 0,
+                    "tiempo_fin": "2026-09-28 21:35:28",
+                    "tiempo_inicio": "2026-09-28 21:35:27"
+                },
+                {
+                    "dias": 0,
+                    "horas": 0,
+                    "minutos": 0,
+                    "segundos": 0,
+                    "tiempo_fin": "2026-09-28 21:36:58",
+                    "tiempo_inicio": "2026-09-28 21:36:57"
+                }
+            ]
+        },
+        {
+            "nombre": "Importante",
+            "timestamp": [
+                {
+                    "dias": 0,
+                    "horas": 0,
+                    "minutos": 0,
+                    "segundos": 1,
+                    "tiempo_fin": "2026-09-28 21:31:58",
+                    "tiempo_inicio": "2026-09-28 21:31:57"
+                },
+                {
+                    "dias": 0,
+                    "horas": 0,
+                    "minutos": 0,
+                    "segundos": 0,
+                    "tiempo_fin": "2026-09-28 21:31:58",
+                    "tiempo_inicio": "2026-09-28 21:31:58"
+                }
+            ]
+        },
+        {
+            "nombre": "Personal Inscrito - iClassWork - Google Chrome",
+            "timestamp": [
+                {
+                    "dias": 0,
+                    "horas": 0,
+                    "minutos": 0,
+                    "segundos": 3,
+                    "tiempo_fin": "2026-09-28 21:32:07",
+                    "tiempo_inicio": "2026-09-28 21:32:03"
+                },
+                {
+                    "dias": 0,
+                    "horas": 0,
+                    "minutos": 0,
+                    "segundos": 0,
+                    "tiempo_fin": "2026-09-28 21:32:12",
+                    "tiempo_inicio": "2026-09-28 21:32:12"
+                },
+                {
+                    "dias": 0,
+                    "horas": 0,
+                    "minutos": 0,
+                    "segundos": 5,
+                    "tiempo_fin": "2026-09-28 21:35:06",
+                    "tiempo_inicio": "2026-09-28 21:35:01"
+                },
+                {
+                    "dias": 0,
+                    "horas": 0,
+                    "minutos": 0,
+                    "segundos": 5,
+                    "tiempo_fin": "2026-09-28 21:35:25",
+                    "tiempo_inicio": "2026-09-28 21:35:19"
+                }
+            ]
+        },
+        {
+            "nombre": "Nueva pesta\u00f1a - Google Chrome",
+            "timestamp": [
+                {
+                    "dias": 0,
+                    "horas": 0,
+                    "minutos": 0,
+                    "segundos": 2,
+                    "tiempo_fin": "2026-09-28 21:32:09",
+                    "tiempo_inicio": "2026-09-28 21:32:07"
+                }
+            ]
+        },
+        {
+            "nombre": "Gmail - Google Chrome",
+            "timestamp": [
+                {
+                    "dias": 0,
+                    "horas": 0,
+                    "minutos": 0,
+                    "segundos": 1,
+                    "tiempo_fin": "2026-09-28 21:32:10",
+                    "tiempo_inicio": "2026-09-28 21:32:09"
+                }
+            ]
+        },
+        {
+            "nombre": "\u0000\u0000\u0000\u0000l - Google Chrome",
+            "timestamp": [
+                {
+                    "dias": 0,
+                    "horas": 0,
+                    "minutos": 0,
+                    "segundos": 0,
+                    "tiempo_fin": "2026-09-28 21:32:10",
+                    "tiempo_inicio": "2026-09-28 21:32:10"
+                }
+            ]
+        },
+        {
+            "nombre": "Inbox (11,076) - tomasninan2@gmail.com - Gmail - Google Chrome",
+            "timestamp": [
+                {
+                    "dias": 0,
+                    "horas": 0,
+                    "minutos": 0,
+                    "segundos": 1,
+                    "tiempo_fin": "2026-09-28 21:32:12",
+                    "tiempo_inicio": "2026-09-28 21:32:10"
+                },
+                {
+                    "dias": 0,
+                    "horas": 0,
+                    "minutos": 0,
+                    "segundos": 0,
+                    "tiempo_fin": "2026-09-28 21:32:17",
+                    "tiempo_inicio": "2026-09-28 21:32:17"
+                },
+                {
+                    "dias": 0,
+                    "horas": 0,
+                    "minutos": 0,
+                    "segundos": 2,
+                    "tiempo_fin": "2026-09-28 21:32:20",
+                    "tiempo_inicio": "2026-09-28 21:32:17"
+                },
+                {
+                    "dias": 0,
+                    "horas": 0,
+                    "minutos": 0,
+                    "segundos": 27,
+                    "tiempo_fin": "2026-09-28 21:33:23",
+                    "tiempo_inicio": "2026-09-28 21:32:55"
+                },
+                {
+                    "dias": 0,
+                    "horas": 0,
+                    "minutos": 0,
+                    "segundos": 0,
+                    "tiempo_fin": "2026-09-28 21:34:40",
+                    "tiempo_inicio": "2026-09-28 21:34:40"
+                }
+            ]
+        },
+        {
+            "nombre": "Meet - uwu-zosh-ycc",
+            "timestamp": [
+                {
+                    "dias": 0,
+                    "horas": 0,
+                    "minutos": 0,
+                    "segundos": 6,
+                    "tiempo_fin": "2026-09-28 21:32:31",
+                    "tiempo_inicio": "2026-09-28 21:32:25"
+                },
+                {
+                    "dias": 0,
+                    "horas": 0,
+                    "minutos": 0,
+                    "segundos": 1,
+                    "tiempo_fin": "2026-09-28 21:34:02",
+                    "tiempo_inicio": "2026-09-28 21:34:00"
+                }
+            ]
+        },
+        {
+            "nombre": "Index - iClassWork - Google Chrome",
+            "timestamp": [
+                {
+                    "dias": 0,
+                    "horas": 0,
+                    "minutos": 0,
+                    "segundos": 9,
+                    "tiempo_fin": "2026-09-28 21:32:40",
+                    "tiempo_inicio": "2026-09-28 21:32:31"
+                },
+                {
+                    "dias": 0,
+                    "horas": 0,
+                    "minutos": 0,
+                    "segundos": 0,
+                    "tiempo_fin": "2026-09-28 21:32:49",
+                    "tiempo_inicio": "2026-09-28 21:32:48"
+                },
+                {
+                    "dias": 0,
+                    "horas": 0,
+                    "minutos": 0,
                     "segundos": 7,
-                    "tiempo_fin": "2025-01-10 22:29:23",
-                    "tiempo_inicio": "2025-01-10 22:29:15"
+                    "tiempo_fin": "2026-09-28 21:34:00",
+                    "tiempo_inicio": "2026-09-28 21:33:53"
+                },
+                {
+                    "dias": 0,
+                    "horas": 0,
+                    "minutos": 0,
+                    "segundos": 3,
+                    "tiempo_fin": "2026-09-28 21:34:05",
+                    "tiempo_inicio": "2026-09-28 21:34:02"
+                },
+                {
+                    "dias": 0,
+                    "horas": 0,
+                    "minutos": 0,
+                    "segundos": 8,
+                    "tiempo_fin": "2026-09-28 21:34:16",
+                    "tiempo_inicio": "2026-09-28 21:34:07"
+                },
+                {
+                    "dias": 0,
+                    "horas": 0,
+                    "minutos": 0,
+                    "segundos": 1,
+                    "tiempo_fin": "2026-09-28 21:34:22",
+                    "tiempo_inicio": "2026-09-28 21:34:20"
                 },
                 {
                     "dias": 0,
                     "horas": 0,
                     "minutos": 0,
                     "segundos": 0,
-                    "tiempo_fin": "2025-01-12 13:38:02",
-                    "tiempo_inicio": "2025-01-12 13:38:02"
+                    "tiempo_fin": "2026-09-28 21:34:24",
+                    "tiempo_inicio": "2026-09-28 21:34:23"
+                },
+                {
+                    "dias": 0,
+                    "horas": 0,
+                    "minutos": 0,
+                    "segundos": 7,
+                    "tiempo_fin": "2026-09-28 21:34:34",
+                    "tiempo_inicio": "2026-09-28 21:34:26"
+                },
+                {
+                    "dias": 0,
+                    "horas": 0,
+                    "minutos": 0,
+                    "segundos": 1,
+                    "tiempo_fin": "2026-09-28 21:35:01",
+                    "tiempo_inicio": "2026-09-28 21:34:59"
+                }
+            ]
+        },
+        {
+            "nombre": "Error",
+            "timestamp": [
+                {
+                    "dias": 0,
+                    "horas": 0,
+                    "minutos": 0,
+                    "segundos": 6,
+                    "tiempo_fin": "2026-09-28 21:32:47",
+                    "tiempo_inicio": "2026-09-28 21:32:41"
+                },
+                {
+                    "dias": 0,
+                    "horas": 0,
+                    "minutos": 0,
+                    "segundos": 6,
+                    "tiempo_fin": "2026-09-28 21:32:55",
+                    "tiempo_inicio": "2026-09-28 21:32:49"
                 },
                 {
                     "dias": 0,
                     "horas": 0,
                     "minutos": 0,
                     "segundos": 0,
-                    "tiempo_fin": "2025-01-12 13:56:33",
-                    "tiempo_inicio": "2025-01-12 13:56:33"
+                    "tiempo_fin": "2026-09-28 21:33:23",
+                    "tiempo_inicio": "2026-09-28 21:33:23"
+                },
+                {
+                    "dias": 0,
+                    "horas": 0,
+                    "minutos": 0,
+                    "segundos": 8,
+                    "tiempo_fin": "2026-09-28 21:33:46",
+                    "tiempo_inicio": "2026-09-28 21:33:38"
+                },
+                {
+                    "dias": 0,
+                    "horas": 0,
+                    "minutos": 0,
+                    "segundos": 3,
+                    "tiempo_fin": "2026-09-28 21:34:40",
+                    "tiempo_inicio": "2026-09-28 21:34:37"
+                },
+                {
+                    "dias": 0,
+                    "horas": 0,
+                    "minutos": 0,
+                    "segundos": 1,
+                    "tiempo_fin": "2026-09-28 21:34:42",
+                    "tiempo_inicio": "2026-09-28 21:34:40"
+                }
+            ]
+        },
+        {
+            "nombre": "Sin t\u00edtulo - Google Chrome",
+            "timestamp": [
+                {
+                    "dias": 0,
+                    "horas": 0,
+                    "minutos": 0,
+                    "segundos": 0,
+                    "tiempo_fin": "2026-09-28 21:34:06",
+                    "tiempo_inicio": "2026-09-28 21:34:05"
                 },
                 {
                     "dias": 0,
                     "horas": 0,
                     "minutos": 0,
                     "segundos": 0,
-                    "tiempo_fin": "2025-01-12 14:02:09",
-                    "tiempo_inicio": "2025-01-12 14:02:09"
+                    "tiempo_fin": "2026-09-28 21:34:16",
+                    "tiempo_inicio": "2026-09-28 21:34:16"
                 },
                 {
                     "dias": 0,
                     "horas": 0,
                     "minutos": 0,
                     "segundos": 0,
-                    "tiempo_fin": "2025-01-12 14:04:16",
-                    "tiempo_inicio": "2025-01-12 14:04:16"
+                    "tiempo_fin": "2026-09-28 21:34:22",
+                    "tiempo_inicio": "2026-09-28 21:34:22"
                 },
                 {
                     "dias": 0,
                     "horas": 0,
                     "minutos": 0,
                     "segundos": 0,
-                    "tiempo_fin": "2025-01-12 14:05:23",
-                    "tiempo_inicio": "2025-01-12 14:05:23"
+                    "tiempo_fin": "2026-09-28 21:34:24",
+                    "tiempo_inicio": "2026-09-28 21:34:24"
+                }
+            ]
+        },
+        {
+            "nombre": "GetCaptura (640\u00d7480) - Google Chrome",
+            "timestamp": [
+                {
+                    "dias": 0,
+                    "horas": 0,
+                    "minutos": 0,
+                    "segundos": 1,
+                    "tiempo_fin": "2026-09-28 21:34:07",
+                    "tiempo_inicio": "2026-09-28 21:34:06"
+                },
+                {
+                    "dias": 0,
+                    "horas": 0,
+                    "minutos": 0,
+                    "segundos": 1,
+                    "tiempo_fin": "2026-09-28 21:34:23",
+                    "tiempo_inicio": "2026-09-28 21:34:22"
+                }
+            ]
+        },
+        {
+            "nombre": "GetCaptura (1920\u00d71080) - Google Chrome",
+            "timestamp": [
+                {
+                    "dias": 0,
+                    "horas": 0,
+                    "minutos": 0,
+                    "segundos": 3,
+                    "tiempo_fin": "2026-09-28 21:34:20",
+                    "tiempo_inicio": "2026-09-28 21:34:16"
+                },
+                {
+                    "dias": 0,
+                    "horas": 0,
+                    "minutos": 0,
+                    "segundos": 2,
+                    "tiempo_fin": "2026-09-28 21:34:26",
+                    "tiempo_inicio": "2026-09-28 21:34:24"
+                }
+            ]
+        },
+        {
+            "nombre": "*1. Optimizar las imagenes mediante - Notepad",
+            "timestamp": [
+                {
+                    "dias": 0,
+                    "horas": 0,
+                    "minutos": 0,
+                    "segundos": 1,
+                    "tiempo_fin": "2026-09-28 21:34:37",
+                    "tiempo_inicio": "2026-09-28 21:34:35"
+                },
+                {
+                    "dias": 0,
+                    "horas": 0,
+                    "minutos": 0,
+                    "segundos": 15,
+                    "tiempo_fin": "2026-09-28 21:34:59",
+                    "tiempo_inicio": "2026-09-28 21:34:44"
+                },
+                {
+                    "dias": 0,
+                    "horas": 0,
+                    "minutos": 1,
+                    "segundos": 27,
+                    "tiempo_fin": "2026-09-28 21:36:55",
+                    "tiempo_inicio": "2026-09-28 21:35:28"
+                },
+                {
+                    "dias": 0,
+                    "horas": 0,
+                    "minutos": 0,
+                    "segundos": 0,
+                    "tiempo_fin": "2026-09-28 21:36:56",
+                    "tiempo_inicio": "2026-09-28 21:36:55"
+                }
+            ]
+        },
+        {
+            "nombre": "ERP_ICLASS-WORK (Ejecuci\u00f3n) - ProWork_PersonalController.cs - Microsoft Visual Studio",
+            "timestamp": [
+                {
+                    "dias": 0,
+                    "horas": 0,
+                    "minutos": 0,
+                    "segundos": 0,
+                    "tiempo_fin": "2026-09-28 21:35:17",
+                    "tiempo_inicio": "2026-09-28 21:35:17"
+                }
+            ]
+        },
+        {
+            "nombre": "ERP_ICLASS-WORK (Depuraci\u00f3n) - ProWork_PersonalController.cs - Microsoft Visual Studio",
+            "timestamp": [
+                {
+                    "dias": 0,
+                    "horas": 0,
+                    "minutos": 0,
+                    "segundos": 1,
+                    "tiempo_fin": "2026-09-28 21:35:19",
+                    "tiempo_inicio": "2026-09-28 21:35:17"
+                }
+            ]
+        },
+        {
+            "nombre": "meet.google.com est\u00e1 compartiendo tu pantalla.",
+            "timestamp": [
+                {
+                    "dias": 0,
+                    "horas": 0,
+                    "minutos": 0,
+                    "segundos": 0,
+                    "tiempo_fin": "2026-09-28 21:36:55",
+                    "tiempo_inicio": "2026-09-28 21:36:55"
                 }
             ]
         }
