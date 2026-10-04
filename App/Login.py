@@ -2,6 +2,7 @@ import threading
 import Camara
 import PermisoCamera
 import Constantes
+import Versiones
 from datetime import datetime
 
 from Usuario import usuario
@@ -86,10 +87,13 @@ QLabel#lbl_error {
 """
 
 class Login(QDialog):
+    _ANCHO = 420
+    _ALTO_BASE = 530
+
     def __init__(self) -> None:
         super().__init__()
         self.setWindowTitle('ProWork — Iniciar Sesión')
-        self.setFixedSize(420, 530)
+        self.setFixedSize(self._ANCHO, self._ALTO_BASE)
         self.setStyleSheet(_STYLE)
         self.componentes_visuales()
         geo = QApplication.primaryScreen().availableGeometry()
@@ -182,6 +186,7 @@ class Login(QDialog):
 
     def validar_usuario(self) -> None:
         self.error_label.hide()
+        self.setFixedHeight(self._ALTO_BASE)
         json = {
             'ID_EMPRESA': self.empresa_input.text(),
             'USUARIO': self.usuario_input.text(),
@@ -200,6 +205,13 @@ class Login(QDialog):
                 fecha_hora = datetime.now().strftime('%d-%m-%Y %H:%M:%S')
                 if asistencia:
                     if asistencia > fecha_hora:
+                        permitido, aviso = Versiones.verificar_version()
+                        if not permitido:
+                            self._mostrar_error(aviso)
+                            return
+                        if aviso:
+                            QMessageBox.information(self, 'Actualización disponible', aviso)
+                        Versiones.registrar_version(diccionario.get('ID_PERSONAL'), diccionario.get('ID_EMPRESA'))
                         usuario.personal = namedtuple("Personal", diccionario.keys())(*diccionario.values())
                         if asistencia_dict:
                             usuario.asistencia = namedtuple("Asistencia", asistencia_dict.keys())(*asistencia_dict.values())
@@ -222,6 +234,13 @@ class Login(QDialog):
     def _mostrar_error(self, mensaje: str) -> None:
         self.error_label.setText(mensaje)
         self.error_label.show()
+        self._ajustar_alto()
+
+    def _ajustar_alto(self) -> None:
+        # El diálogo crece lo necesario para que el mensaje de error se vea completo
+        self.layout().activate()
+        alto = max(self._ALTO_BASE, self.layout().totalHeightForWidth(self._ANCHO))
+        self.setFixedHeight(alto)
 
 
 #20481

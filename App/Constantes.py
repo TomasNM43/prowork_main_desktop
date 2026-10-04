@@ -1,8 +1,11 @@
 #URL = "http://38.253.155.235:8080"}
 
-#URL = "http://38.253.155.235:10005"
-URL = "http://localhost:10005"
+URL = "http://38.253.155.235:10005"
+#URL = "http://localhost:10005"
 URL_IP = "https://api.ipify.org"
+
+# Versión de la aplicación. Subirla en cada release (formato MAYOR.MENOR.PARCHE).
+VERSION = "1.0.0"
 
 URL_WEB = "http://38.253.155.235:10004"   # el mismo servidor donde corre SIGOFCv3
 STREAMING_SECRET = "prowork-stream-2026"
